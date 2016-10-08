@@ -8,7 +8,21 @@
       this.$log = $log;
       this.$location = $location;
       this.UserService = UserService;
+      this.$log.debug("B2B UserCtrl created");
+      this.loadMap();
     }
+
+    B2BUserCtrl.prototype.loadMap = function() {
+      var map;
+      this.$log.debug("Load Map data");
+      mapboxgl.accessToken = 'pk.eyJ1Ijoia296bG93c3QiLCJhIjoiY2lzeGVlNTFnMDAyeTJ0cGR2N3czaXN3ciJ9.fmbuFc5B24xKGiiLJ7mrpA';
+      return map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        center: [-74.50, 40],
+        zoom: 9
+      });
+    };
 
     return B2BUserCtrl;
 
