@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA,SAAU;EACR,OAAO,EAAE,SAAS;EAChB,KAAK,EAAE,MAAM;EACb,MAAM,EAAE,IAAI;EACZ,QAAQ,EAAE,MAAM;EAChB,WAAW,EAPC,sDAAkD;EAQhE,SAAS,EAAE,IAAI;;AAGjB,gBAAiB;EACb,gBAAgB,EAbJ,OAAO",
+"sources": ["_calendar.scss"],
+"names": [],
+"file": "_icons.scss"
+}

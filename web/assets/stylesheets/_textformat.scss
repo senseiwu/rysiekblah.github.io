@@ -1,0 +1,40 @@
+
+$font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+$primary-text-color: #212121;
+$secondary-test-color: #757575;
+
+h1 {
+	font-family: $font-family;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
+
+h3 {
+	font-family: $font-family;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.4px;
+}
+
+h4 {
+	//font-family: $font-family;
+	// font-size: 12px;
+	// font-style: normal;
+	// font-variant: normal;
+	font-weight: 500;
+	line-height: 25px;
+}
+
+h5 {
+	//font-family: $font-family;
+	// font-size: 12px;
+	// font-style: normal;
+	// font-variant: normal;
+	font-weight: 500;
+	line-height: 25px;
+}

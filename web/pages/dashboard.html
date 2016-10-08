@@ -1,0 +1,226 @@
+
+<div class="mp-padding" ng-controller="UserCtrl as cuc">
+  <div class="row">
+  	<div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-8 text-left">
+              <h2>{{ cuc.userprofile.firstName }} {{ cuc.userprofile.secondName }}</h2>
+              <p><strong>{{ cuc.userprofile.jobPosition }}</strong></p>
+            </div><!--/col-->
+            <div class="col-sm-4 text-justify">
+              <img src="/assets/images/John_Doe.jpg" alt="" class="center-block img-circle img-responsive">
+            </div><!--/col-->
+            <div class="col-sm-12">
+              <p>{{ cuc.userprofile.location }}</p>
+                <table><tr>
+                  <td><strong>Skills: </strong></td>
+                  <td ng-repeat="skill in cuc.userprofile.skills">
+                    <span class="label label-info tags"> {{ skill }} </span>
+                  </td>
+                </tr></table>
+
+                <table><tr>
+                  <td><strong>Interests: </strong></td>
+                  <td ng-repeat="item in cuc.userprofile.interests">
+                    <span class="label label-success tags"> {{ item }} </span>
+                  </td>
+                </tr></table>
+            </div>
+            <div class="col-sm-6">
+              <h2><strong> 5 </strong></h2>
+              <a href="">Groups</a>
+            </div>
+            <div class="col-sm-6">
+              <h2><strong>{{ cuc.upcomingEventsInfo.length }}</strong></h2>
+              <a href="#">Upcoming events</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h4>YOU MAY WANT TO JOIN</h4>
+
+      <div class="panel panel-default" ng-repeat="event in cuc.suggestedEventsInfo">
+        <div class="panel-heading">
+          <a ng-href="/#/event/{{event.slug}}"><h4 class="panel-title"><strong>{{ event.name }}</strong></h4></a>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <span class="label label-primary">{{ event.when }}</span>
+              <h5>{{ event.info }}</h5>
+            </div><!--/col-->
+            <div class="col-sm-6">
+              <a><span class="badge">{{ event.peopleCount }}</span> people going</a>
+            </div>
+            <div class="col-sm-6">
+              <p class="text-right">
+                <a><span class="badge">{{  event.commentsCount }}</span> comments</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default" ng-hide="cuc.suggestedEventsInfo.length">
+        <div class="panel-body" ng-class="{'body-not-active':true}">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <a ng-href="">No suggestions for you in MeetPoint</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default" ng-show="cuc.suggestedEventsInfo.length">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <a ng-href="">View all suggestions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-4">
+      <!-- Calendar is here -->
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div id='calendar' class="calendar" ng-model="cuc.eventSources" calendar="myCalendar" ui-calendar="cuc.uiConfig.calendar"></div>
+          </div>
+        </div>
+      </div>
+
+      <h4>MY UPCOMING EVENTS</h4>
+
+      <div class="panel panel-default" ng-repeat="event in cuc.upcomingEventsInfo">
+        <div class="panel-heading">
+          <a href="/#/event/{{event.slug}}"><h4 class="panel-title"><strong>{{ event.name }}</strong></h4></a>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <span class="label label-primary">{{ event.when }}</span>
+              <h5>{{ event.info }}</h5>
+            </div><!--/col-->
+            <div class="col-sm-6">
+              <a><span class="badge">{{ event.peopleCount }}</span> people going</a>
+            </div>
+            <div class="col-sm-6">
+              <p class="text-right">
+                <a><span class="badge">{{ event.commentsCount }}</span> comments</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default" ng-hide="cuc.upcomingEventsInfo.length">
+        <div class="panel-body" ng-class="{'body-not-active':true}">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <a ng-href="">No upcoming actions in MeetPoint</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default" ng-show="cuc.upcomingEventsInfo.length">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <a ng-href="">View all my upcoming events</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+      <h4>MY PREVIOUS ACTIVITIES</h4>
+      <div class="panel panel-default" ng-repeat="event in cuc.pastEventsInfo">
+        <div class="panel-heading">
+          <a href="/#/event/{{event.slug}}"><h4 class="panel-title"><strong>{{ event.name }}</strong></h4></a>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <span class="label label-primary">{{ event.when }}</span>
+              <h5>{{ event.info }}</h5>
+            </div><!--/col-->
+            <div class="col-sm-6">
+              <a><span class="badge">{{ event.peopleCount }}</span> people going</a>
+            </div>
+            <div class="col-sm-6">
+              <p class="text-right">
+                <a><span class="badge">{{  event.commentsCount }}</span> comments</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default" ng-hide="cuc.pastEventsInfo.length">
+        <div class="panel-body" ng-class="{'body-not-active':true}">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <a ng-href="">No actions in your past in MeetPoint</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default" ng-show="cuc.pastEventsInfo.length">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <a ng-href="">View all my past events</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel"></h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <span class="label label-primary" id="modalWhen"></span>
+              <h5 id="myModalInfo"></h5>
+            </div><!--/col-->
+            <div class="col-sm-6">
+              <a><span class="badge" id="modalPeopleCount"></span> people going</a>
+            </div>
+            <div class="col-sm-6">
+              <p class="text-right">
+                <a><span class="badge" id="modalCommentsCount"></span> comments</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success" ng-click="cuc.test()">Go to Event profile</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
