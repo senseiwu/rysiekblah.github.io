@@ -1,10 +1,3 @@
-// $(document).ready(function(){
-//   mapboxgl.accessToken = 'pk.eyJ1Ijoia296bG93c3QiLCJhIjoiY2lzeGVlNTFnMDAyeTJ0cGR2N3czaXN3ciJ9.fmbuFc5B24xKGiiLJ7mrpA';
-//   var map = new mapboxgl.Map({
-//     container: 'map',
-//     style: 'mapbox://styles/mapbox/streets-v9'
-//   });
-// })
 
 function vomit(input) {
   console.log("vomit!");

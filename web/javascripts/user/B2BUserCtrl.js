@@ -3,24 +3,43 @@
   var B2BUserCtrl;
 
   B2BUserCtrl = (function() {
-    function B2BUserCtrl($cookieStore, $log, $location, UserService) {
+    function B2BUserCtrl($cookieStore, $log, $location, $document, UserService) {
       this.$cookieStore = $cookieStore;
       this.$log = $log;
       this.$location = $location;
+      this.$document = $document;
       this.UserService = UserService;
       this.$log.debug("B2B UserCtrl created");
       this.loadMap();
+      this.initGallery();
     }
 
     B2BUserCtrl.prototype.loadMap = function() {
-      var map;
+      var mapLeaflet;
       this.$log.debug("Load Map data");
-      mapboxgl.accessToken = 'pk.eyJ1Ijoia296bG93c3QiLCJhIjoiY2lzeGVlNTFnMDAyeTJ0cGR2N3czaXN3ciJ9.fmbuFc5B24xKGiiLJ7mrpA';
-      return map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v9',
-        center: [-74.50, 40],
-        zoom: 9
+      L.mapbox.accessToken = 'pk.eyJ1Ijoia296bG93c3QiLCJhIjoiY2lzeGVlNTFnMDAyeTJ0cGR2N3czaXN3ciJ9.fmbuFc5B24xKGiiLJ7mrpA';
+      mapLeaflet = L.mapbox.map('map', 'mapbox.streets').setView([38.913184, -77.031952], 16);
+      return L.marker([38.913184, -77.031952]).addTo(mapLeaflet);
+    };
+
+    B2BUserCtrl.prototype.initGallery = function() {
+      this.$log.debug("init gallery");
+      return this.$document.find('#gallery').poptrox({
+        baseZIndex: 20000,
+        fadeSpeed: 300,
+        overlayOpacity: 0,
+        popupCloserText: '',
+        popupHeight: 150,
+        popupLoaderText: '',
+        popupSpeed: 300,
+        popupWidth: 150,
+        usePopupCaption: true,
+        usePopupCloser: true,
+        usePopupDefaultStyling: false,
+        usePopupForceClose: true,
+        usePopupLoader: true,
+        usePopupNav: true,
+        windowMargin: 50
       });
     };
 
@@ -28,6 +47,6 @@
 
   })();
 
-  controllersModule.controller('B2BUserCtrl', ['$cookieStore', '$log', '$location', 'UserService', B2BUserCtrl]);
+  controllersModule.controller('B2BUserCtrl', ['$cookieStore', '$log', '$location', '$document', 'UserService', B2BUserCtrl]);
 
 }).call(this);

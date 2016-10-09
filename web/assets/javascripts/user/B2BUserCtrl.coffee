@@ -1,16 +1,44 @@
 class B2BUserCtrl
-  constructor: (@$cookieStore, @$log, @$location,  @UserService) ->
+  constructor: (@$cookieStore, @$log, @$location, @$document,  @UserService) ->
       @$log.debug "B2B UserCtrl created"
       this.loadMap()
+      this.initGallery()
 
   loadMap: () ->
     @$log.debug "Load Map data"
-    mapboxgl.accessToken = 'pk.eyJ1Ijoia296bG93c3QiLCJhIjoiY2lzeGVlNTFnMDAyeTJ0cGR2N3czaXN3ciJ9.fmbuFc5B24xKGiiLJ7mrpA';
-    map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v9',
-      center: [-74.50, 40],
-      zoom: 9
-    });
+    L.mapbox.accessToken = 'pk.eyJ1Ijoia296bG93c3QiLCJhIjoiY2lzeGVlNTFnMDAyeTJ0cGR2N3czaXN3ciJ9.fmbuFc5B24xKGiiLJ7mrpA';
+    mapLeaflet = L.mapbox.map('map', 'mapbox.streets').setView([38.913184, -77.031952], 16);
+    L.marker([38.913184, -77.031952]).addTo(mapLeaflet);
+    # L.marker([38.913184, -77.031952]).addTo(mapLeaflet);
+    # L.marker([37.775408, -122.413682]).addTo(mapLeaflet);
 
-controllersModule.controller('B2BUserCtrl', ['$cookieStore', '$log', '$location', 'UserService', B2BUserCtrl])
+    # mapboxgl.accessToken = 'pk.eyJ1Ijoia296bG93c3QiLCJhIjoiY2lzeGVlNTFnMDAyeTJ0cGR2N3czaXN3ciJ9.fmbuFc5B24xKGiiLJ7mrpA';
+    # map = new mapboxgl.Map({
+    #   container: 'map',
+    #   style: 'mapbox://styles/mapbox/streets-v9',
+    #   center: [19.786726, 50.177505],
+    #   zoom: 16
+    # });
+    # L.marker([19.786726, 50.177505]).addTo(map)
+
+  initGallery: () ->
+    @$log.debug "init gallery"
+    @$document.find('#gallery').poptrox({
+        baseZIndex: 20000,
+        fadeSpeed: 300,
+        overlayOpacity: 0,
+        popupCloserText: '',
+        popupHeight: 150,
+        popupLoaderText: '',
+        popupSpeed: 300,
+        popupWidth: 150,
+        usePopupCaption: true,
+        usePopupCloser: true,
+        usePopupDefaultStyling: true,
+        usePopupForceClose: true,
+        usePopupLoader: true,
+        usePopupNav: true,
+        windowMargin: 50
+		});
+
+controllersModule.controller('B2BUserCtrl', ['$cookieStore', '$log', '$location', '$document', 'UserService', B2BUserCtrl])
