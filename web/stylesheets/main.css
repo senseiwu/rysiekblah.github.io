@@ -5827,9 +5827,13 @@ h4 {
   font-weight: 500;
   line-height: 25px; }
 
-h5 {
+.ph h5 {
   font-weight: 500;
-  line-height: 25px; }
+  line-height: 22px; }
+
+.phw h6 {
+  font-weight: 500;
+  line-height: 22px; }
 
 #calendar {
   padding: 10px 10px;

@@ -7,7 +7,9 @@ class B2BUserCtrl
   loadMap: () ->
     @$log.debug "Load Map data"
     L.mapbox.accessToken = 'pk.eyJ1Ijoia296bG93c3QiLCJhIjoiY2lzeGVlNTFnMDAyeTJ0cGR2N3czaXN3ciJ9.fmbuFc5B24xKGiiLJ7mrpA';
-    mapLeaflet = L.mapbox.map('map', 'mapbox.streets').setView([38.913184, -77.031952], 16);
+    mapLeaflet = L.mapbox.map('map', 'mapbox.streets', {
+      scrollWheelZoom: false
+    }).setView([38.913184, -77.031952], 16);
     L.marker([38.913184, -77.031952]).addTo(mapLeaflet);
     # L.marker([38.913184, -77.031952]).addTo(mapLeaflet);
     # L.marker([37.775408, -122.413682]).addTo(mapLeaflet);

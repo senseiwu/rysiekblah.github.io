@@ -18,7 +18,9 @@
       var mapLeaflet;
       this.$log.debug("Load Map data");
       L.mapbox.accessToken = 'pk.eyJ1Ijoia296bG93c3QiLCJhIjoiY2lzeGVlNTFnMDAyeTJ0cGR2N3czaXN3ciJ9.fmbuFc5B24xKGiiLJ7mrpA';
-      mapLeaflet = L.mapbox.map('map', 'mapbox.streets').setView([38.913184, -77.031952], 16);
+      mapLeaflet = L.mapbox.map('map', 'mapbox.streets', {
+        scrollWheelZoom: false
+      }).setView([38.913184, -77.031952], 16);
       return L.marker([38.913184, -77.031952]).addTo(mapLeaflet);
     };
 
@@ -35,7 +37,7 @@
         popupWidth: 150,
         usePopupCaption: true,
         usePopupCloser: true,
-        usePopupDefaultStyling: false,
+        usePopupDefaultStyling: true,
         usePopupForceClose: true,
         usePopupLoader: true,
         usePopupNav: true,
