@@ -9,7 +9,7 @@
   angular.module('mpApp.routeConfig', ['ngRoute']).config([
     '$routeProvider', function($routeProvider) {
       return $routeProvider.when('/', {
-        templateUrl: 'pages/venueProfile.html'
+        templateUrl: 'pages/event.html'
       }).when('/register', {
         templateUrl: 'pages/createUser.html'
       }).when('/dashboard', {
