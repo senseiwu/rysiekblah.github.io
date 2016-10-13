@@ -18,8 +18,8 @@ angular.module('mpApp.routeConfig', ['ngRoute'])
     .config(['$routeProvider', ($routeProvider) ->
         $routeProvider
             .when('/', {
-                # templateUrl: 'pages/venueProfile.html'
-                templateUrl: 'pages/event.html'
+                templateUrl: 'pages/venueProfile.html'
+                # templateUrl: 'pages/event.html'
             })
             .when('/register', {
                 templateUrl: 'pages/createUser.html'
