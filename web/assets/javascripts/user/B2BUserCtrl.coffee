@@ -40,7 +40,7 @@ class B2BUserCtrl
         popupWidth: 150,
         usePopupCaption: true,
         usePopupCloser: true,
-        usePopupDefaultStyling: true,
+        usePopupDefaultStyling: false,
         usePopupForceClose: true,
         usePopupLoader: true,
         usePopupNav: true,
