@@ -4,6 +4,10 @@ class B2BUserCtrl
       this.loadMap()
       this.initGallery()
 
+      @$document.find("#manuTabs").click (e) ->
+        e.preventDefault()
+        $(this).tab('show')
+
   loadMap: () ->
     @$log.debug "Load Map data"
     L.mapbox.accessToken = 'pk.eyJ1Ijoia296bG93c3QiLCJhIjoiY2lzeGVlNTFnMDAyeTJ0cGR2N3czaXN3ciJ9.fmbuFc5B24xKGiiLJ7mrpA';
