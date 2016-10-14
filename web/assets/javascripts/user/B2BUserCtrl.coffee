@@ -2,6 +2,10 @@ class B2BUserCtrl
   constructor: (@$cookieStore, @$log, @$location, @$document,  @UserService) ->
       @$log.debug "B2B UserCtrl created"
       @$location.path("/")
+
+      $('.carousel').carousel
+        interval: 5000
+
       this.loadMap()
       this.initGallery()
 

@@ -1,2 +1,2 @@
 #!/bin/bash
-exec `rm -rf ./gen`
+exec `rm -rf ./gen/javascripts/ ./gen/stylesheets/`
