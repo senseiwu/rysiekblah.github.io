@@ -1,26 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="mpApp">
 <head>
-  <meta charset=utf-8 />
-  <title></title>
-  <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
-  <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
-  <style>
-    body { margin:0; padding:0; }
-    .map { position:absolute; top:0; bottom:0; width:100%; }
-  </style>
+    <title>luoja</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="MeetPoint team">
+
+    <link rel="shortcut icon" type="image/png" href="images/logo.png">
+
 </head>
-<body>
-<div id='map-leaflet' class='map'> </div>
-<script>
-L.mapbox.accessToken = 'pk.eyJ1Ijoia296bG93c3QiLCJhIjoiY2lzeGVlNTFnMDAyeTJ0cGR2N3czaXN3ciJ9.fmbuFc5B24xKGiiLJ7mrpA';
-var mapLeaflet = L.mapbox.map('map-leaflet', 'mapbox.light')
-  .setView([37.8, -96], 4);
 
-L.marker([38.913184, -77.031952]).addTo(mapLeaflet);
-L.marker([37.775408, -122.413682]).addTo(mapLeaflet);
+<body ng-class="{'body-look':true}" ng-controller="AuthCtrl as cc">
 
-mapLeaflet.scrollWheelZoom.disable();
-</script>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/#/">luoja</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <div ng-if="cc.isActive()">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#/newevent">+ NEW EVENT</a></li>
+                    <li><a href="#/" ng-click="cc.logoff()">Log off</a></li>
+                </ul>
+                <div class="navbar-form navbar-right">
+                    <a class="btn btn-default btn-sm" ng-href="#/b2bwellcome">Business account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div>
+        <div ng-class="{'body-look':true}" ng-view></div>
+    </div>
+</div><!-- /.container -->
+
+<link rel='stylesheet' href="stylesheets/mapbox.css">
+<link rel="stylesheet" media="screen" href="gen/stylesheets/main.css">
+<link rel="stylesheet" media="screen" href="stylesheets/select2.min.css">
+<link rel="stylesheet" media="screen" href="stylesheets/select.min.css">
+<link rel='stylesheet' href="stylesheets/fullcalendar.min.css">
+<link rel='stylesheet' media='print' href="stylesheets/fullcalendar.print.css">
+<link rel='stylesheet' href="stylesheets/fa/font-awesome.min.css">
+
+<script src="javascripts/lib/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="javascripts/lib/mapbox.js" type="text/javascript"></script>
+<script src="javascripts/lib/jquery.poptrox.min.js" type="text/javascript"></script>
+<script src="javascripts/lib/holder.min.js" type="text/javascript"></script>
+<script src="javascripts/lib/angular.min.js" type="text/javascript"></script>
+<script src="javascripts/lib/angular-sanitize.min.js" type="text/javascript"></script>
+<script src="javascripts/lib/angular-route.min.js" type="text/javascript"></script>
+<script src="javascripts/lib/angular-cookies.min.js" type="text/javascript"></script>
+<script src="javascripts/lib/bootstrap.min.js" type="text/javascript"></script>
+<script src="javascripts/lib/ui-bootstrap-tpls-1.1.2.min.js" type="text/javascript"></script>
+<script src="javascripts/lib/moment.min.js" type="text/javascript"></script>
+<script src="javascripts/lib/fullcalendar.min.js" type="text/javascript"></script>
+<script src="javascripts/lib/calendar.js" type="text/javascript"></script>
+<script src="javascripts/lib/select.min.js" type="text/javascript"></script>
+
+<script src="javascripts/fileSupport.js" type="text/javascript"></script>
+<script src="gen/javascripts/app.js" type="text/javascript"></script>
+<script src="gen/javascripts/AuthCtrl.js" type="text/javascript"></script>
+<script src="gen/javascripts/user/UserCtrl.js" type="text/javascript"></script>
+<script src="gen/javascripts/user/UserService.js" type="text/javascript"></script>
+<script src="gen/javascripts/user/B2BUserCtrl.js" type="text/javascript"></script>
+<script src="gen/javascripts/user/SigninUserCtrl.js" type="text/javascript"></script>
 </body>
 </html>

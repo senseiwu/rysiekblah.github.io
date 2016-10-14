@@ -6,7 +6,7 @@ class SigninUserCtrl
         @userprofile = @$cookieStore.get('userdata')
         if !this.isUndefined(@userprofile)
           @$log.debug "User is remembered, redirect to dashboard"
-          @$location.path("/dashboard")
+          # @$location.path("/dashboard")
 
     loginUser: () ->
       @UserService.signin(@user).then(

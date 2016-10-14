@@ -16,6 +16,7 @@ app = angular.module('mpApp', dependencies)
 
 angular.module('mpApp.routeConfig', ['ngRoute'])
     .config(['$routeProvider', ($routeProvider) ->
+        console.log('########### otherwise: ' + $routeProvider.route);
         $routeProvider
             .when('/', {
                 templateUrl: 'pages/venue.html'
@@ -38,7 +39,9 @@ angular.module('mpApp.routeConfig', ['ngRoute'])
             .when('/b2bcreate', {
                 templateUrl: 'pages/createBusinessUser.html'
             })
-            .otherwise({redirectTo: '/'})])
+            .otherwise({
+              redirectTo: '/'
+            })])
     .config(['$locationProvider', ($locationProvider) ->
         $locationProvider.html5Mode({
             enabled: true,

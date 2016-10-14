@@ -1,10 +1,11 @@
 class B2BUserCtrl
   constructor: (@$cookieStore, @$log, @$location, @$document,  @UserService) ->
       @$log.debug "B2B UserCtrl created"
+      @$location.path("/")
       this.loadMap()
       this.initGallery()
 
-      @$document.find("#manuTabs").click (e) ->
+      @$document.find("#manuTabsMP").click (e) ->
         e.preventDefault()
         $(this).tab('show')
 
@@ -28,11 +29,12 @@ class B2BUserCtrl
     # L.marker([19.786726, 50.177505]).addTo(map)
 
   initGallery: () ->
-    @$log.debug "init gallery"
+    @$log.debug "inita gallery"
     @$document.find('#gallery').poptrox({
         baseZIndex: 20000,
         fadeSpeed: 300,
         overlayOpacity: 0,
+        selector: 'g',
         popupCloserText: '',
         popupHeight: 150,
         popupLoaderText: '',

@@ -9,6 +9,7 @@ class AuthCtrl
     @UserService.auth(undefined)
 
   isActive: () ->
+    @$log.debug "is active: " + !angular.isUndefined(@UserService.user)
     !angular.isUndefined(@UserService.user)
 
 controllersModule.controller('AuthCtrl', ['$cookieStore', '$log', '$location', 'UserService', AuthCtrl])
