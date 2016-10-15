@@ -1,80 +1,53 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="mpApp">
-<head>
-    <title>luoja</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="MeetPoint team">
+<!DOCTYPE HTML>
+<!--
+	Eventually by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>luoja</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="gen/stylesheets/landing/landing.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<link rel="shortcut icon" type="image/png" href="images/logo.png">
+	</head>
+	<body>
 
-    <link rel="shortcut icon" type="image/png" href="images/logo.png">
+		<!-- Header -->
+			<header id="header">
+				<img src="images/luoja.png">
+				<h1>Eventually</h1>
+				<p>A simple template for telling the world when you'll launch<br />
+				your next big thing. Check our <a href="demo.html" class="btn btn-default">Demo</a>
+				</p>
+			</header>
 
-</head>
+		<!-- Signup Form -->
+			<form id="signup-form" method="post" action="#">
+				<input type="email" name="email" id="email" placeholder="Email Address" />
+				<input type="submit" value="Sign Up" />
+			</form>
 
-<body ng-class="{'body-look':true}" ng-controller="AuthCtrl as cc">
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; luoja.</li><li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</footer>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/#/">luoja</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <div ng-if="cc.isActive()">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#/newevent">+ NEW EVENT</a></li>
-                    <li><a href="#/" ng-click="cc.logoff()">Log off</a></li>
-                </ul>
-                <div class="navbar-form navbar-right">
-                    <a class="btn btn-default btn-sm" ng-href="#/b2bwellcome">Business account</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
+		<!-- Scripts -->
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="javascripts/landing.js"></script>
 
-<div class="container">
-    <div>
-        <div ng-class="{'body-look':true}" ng-view></div>
-    </div>
-</div><!-- /.container -->
-
-<link rel='stylesheet' href="stylesheets/mapbox.css">
-<link rel="stylesheet" media="screen" href="gen/stylesheets/news-slide.css">
-<link rel="stylesheet" media="screen" href="gen/stylesheets/main.css">
-<link rel="stylesheet" media="screen" href="stylesheets/select2.min.css">
-<link rel="stylesheet" media="screen" href="stylesheets/select.min.css">
-<link rel='stylesheet' href="stylesheets/fullcalendar.min.css">
-<link rel='stylesheet' media='print' href="stylesheets/fullcalendar.print.css">
-<link rel='stylesheet' href="stylesheets/fa/font-awesome.min.css">
-
-<script src="javascripts/lib/jquery-2.2.0.min.js" type="text/javascript"></script>
-<script src="javascripts/lib/mapbox.js" type="text/javascript"></script>
-<script src="javascripts/lib/jquery.poptrox.min.js" type="text/javascript"></script>
-<script src="javascripts/lib/holder.min.js" type="text/javascript"></script>
-<script src="javascripts/lib/angular.min.js" type="text/javascript"></script>
-<script src="javascripts/lib/angular-sanitize.min.js" type="text/javascript"></script>
-<script src="javascripts/lib/angular-route.min.js" type="text/javascript"></script>
-<script src="javascripts/lib/angular-cookies.min.js" type="text/javascript"></script>
-<script src="javascripts/lib/bootstrap.min.js" type="text/javascript"></script>
-<script src="javascripts/lib/ui-bootstrap-tpls-1.1.2.min.js" type="text/javascript"></script>
-<script src="javascripts/lib/moment.min.js" type="text/javascript"></script>
-<script src="javascripts/lib/fullcalendar.min.js" type="text/javascript"></script>
-<script src="javascripts/lib/calendar.js" type="text/javascript"></script>
-<script src="javascripts/lib/select.min.js" type="text/javascript"></script>
-
-<script src="javascripts/fileSupport.js" type="text/javascript"></script>
-<script src="gen/javascripts/app.js" type="text/javascript"></script>
-<script src="gen/javascripts/AuthCtrl.js" type="text/javascript"></script>
-<script src="gen/javascripts/user/UserCtrl.js" type="text/javascript"></script>
-<script src="gen/javascripts/user/UserService.js" type="text/javascript"></script>
-<script src="gen/javascripts/user/B2BUserCtrl.js" type="text/javascript"></script>
-<script src="gen/javascripts/user/SigninUserCtrl.js" type="text/javascript"></script>
-</body>
+	</body>
 </html>
