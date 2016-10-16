@@ -17,8 +17,13 @@ $primary-text-color:   #212121;
 $secondary-text-color: #757575;
 $divider-color:        #BDBDBD;
 
-// $primary-color: #eee;
+$primary-color:  #F2F2F2;
 $background-color-not-active: #ddd;
+
+.top_image img{
+display: block;
+margin: 0 auto;
+}
 
 /* Carousel base class */
 .carousel {
