@@ -25,6 +25,9 @@ angular.module('mpApp.routeConfig', ['ngRoute'])
             .when('/event', {
                 templateUrl: 'pages/event.html'
             })
+            .when('/info', {
+                templateUrl: 'pages/info.html'
+            })
             .otherwise({
               redirectTo: '/'
             })])
