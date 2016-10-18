@@ -25,6 +25,10 @@
       return this.venues = JSON.parse(this.AWSService.venues()).data;
     };
 
+    DashboardCtrl.prototype.storeVenueId = function(id) {
+      return this.AWSService.storeVenue(id);
+    };
+
     return DashboardCtrl;
 
   })();

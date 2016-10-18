@@ -1,7 +1,7 @@
 class B2BUserCtrl
-  constructor: (@$cookieStore, @$log, @$location, @$document,  @UserService) ->
+  constructor: (@$cookieStore, @$log, @$location, @$document,  @AWSService) ->
       @$log.debug "B2B UserCtrl created"
-      # @$location.path("/")
+      @venue = @AWSService.venue()
 
       $('.carousel').carousel
         interval: 5000
@@ -42,4 +42,8 @@ class B2BUserCtrl
         windowMargin: 50
 		});
 
-controllersModule.controller('B2BUserCtrl', ['$cookieStore', '$log', '$location', '$document', 'UserService', B2BUserCtrl])
+  # use it when getting data from lambda - promise
+  # venueData: () ->
+  #   @venue = @AWSService.venue()
+
+controllersModule.controller('B2BUserCtrl', ['$cookieStore', '$log', '$location', '$document', 'AWSService', B2BUserCtrl])

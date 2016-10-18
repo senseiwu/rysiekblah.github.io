@@ -44,7 +44,7 @@
             <img class="featurette-image img-responsive left-block" src="images/logos/logo1.png">
           </div>
           <div class="col-md-10">
-            <a href="#/venue"><h4 class="panel-title"><strong>{{ venue.name }}</strong></h4></a>
+            <a href="#/venue" ng-click="dc.storeVenueId(venue.id)"><h4 class="panel-title"><strong>{{ venue.name }}</strong></h4></a>
             <h5>{{ venue.info }}</h5>
             <h5><strong>
                 <i class="fa fa-location-arrow" aria-hidden="true"></i> : {{ venue.address }}

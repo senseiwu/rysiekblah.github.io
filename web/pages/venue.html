@@ -5,15 +5,15 @@
       <div class="col-md-3 sidebar">
         <!-- <img class="featurette-image img-responsive left-block" data-src="holder.js/120x120?bg=2a2025&text=logo" alt="Generic placeholder image"> -->
         <img class="featurette-image img-responsive left-block" src="images/logos/logo5.png" width="150px" height="150px">
-        <h2 class="featurette-heading">Simple Work Ltd. </h2>
+        <h2 class="featurette-heading">{{ b2buc.venue.name }}</h2>
         <h5>1355 Market Street, Suite 900,<br> San Francisco, CA 94103</h5>
 
         <h5><strong>CONTACT</strong></h5>
         <div class="bottom"></div>
-        <h6><strong>Mio | </strong>
-        <i class="fa fa-phone" aria-hidden="true"></i> 13148807853 |
-        <i class="fa fa-weixin" aria-hidden="true"></i> yimioyo |
-        <i class="fa fa-skype" aria-hidden="true"></i> miomio </h6>
+        <h6><strong>{{ b2buc.venue.contact.name }} | </strong>
+        <i class="fa fa-phone" aria-hidden="true"></i> {{ b2buc.venue.contact.phone }} |
+        <i class="fa fa-weixin" aria-hidden="true"></i> {{ b2buc.venue.contact.wechat }} |
+        <i class="fa fa-skype" aria-hidden="true"></i> {{ b2buc.venue.contact.skype }} </h6>
         <br>
         <h5><strong>NEWS</strong></h5>
 
@@ -89,14 +89,7 @@
               <h4 class="featurette-heading"><strong>ABOUT</strong></h4>
               <div class="bottom"></div>
               <div class="ph">
-                <h5>
-                <strong>
-                  Located near the Jing'an Temple, the WeWork Yanping Lu coworking space has a rich culture and history.
-                  It also offers easy access to two main Metro stops, Line 2 and Line 7, and is surrounded by restaurants offering
-                  traditional Shanghai cuisine. Members can enjoy a giant fish tank wall, large meeting rooms, and office space
-                  flooded with sunlight thanks to the floor-to-ceiling windows.
-                </strong>
-                </h5>
+                <h5><strong>{{ b2buc.venue.about }}</strong></h5>
                 </div>
                 <br>
                 <table class="table">
@@ -105,10 +98,10 @@
                       <h6><strong>VENUE</stong></h6>
                     </th>
                     <th>
-                      <h6>CAPACITY: <strong>400 people</strong></h6>
-                      <h6>CONFERENCE ROOMS: <strong>6</strong></h6>
-                      <h6>DESKS: <strong>56</strong></h6>
-                      <h6>OFFICES: <strong>14</strong></h6>
+                      <h6>CAPACITY: <strong>{{ b2buc.venue.venue.capacity }}</strong></h6>
+                      <h6>CONFERENCE ROOMS: <strong>{{ b2buc.venue.venue.confRooms }}</strong></h6>
+                      <h6>DESKS: <strong>{{ b2buc.venue.venue.desks }}</strong></h6>
+                      <h6>OFFICES: <strong>{{ b2buc.venue.venue.offices }}</strong></h6>
                     </th>
                     <th>
                     </th>
@@ -116,16 +109,16 @@
                   <tr>
                     <th><h6><strong>AMENITIES</strong></h6></th>
                     <th>
-                      <h6><i class="fa fa-wifi" aria-hidden="true"></i> Wi-fi</h6>
-                      <h6><i class="fa fa-coffee" aria-hidden="true"></i> Caffee</h6>
-                      <h6><i class="fa fa-print" aria-hidden="true"></i> Printers</h6>
-                      <h6><i class="fa fa-life-ring" aria-hidden="true"></i> Onsite support</h6>
+                      <h6 ng-if="b2buc.venue.amenities.wifi=='yes'"><i class="fa fa-wifi" aria-hidden="true"></i> Wi-fi</h6>
+                      <h6 ng-if="b2buc.venue.amenities.coffee=='yes'"><i class="fa fa-coffee" aria-hidden="true"></i> Caffee</h6>
+                      <h6 ng-if="b2buc.venue.amenities.printer=='yes'"><i class="fa fa-print" aria-hidden="true"></i> Printers</h6>
+                      <h6 ng-if="b2buc.venue.amenities.onsiteSupport=='yes'"><i class="fa fa-life-ring" aria-hidden="true"></i> Onsite support</h6>
                     </th>
                     <th>
-                      <h6><i class="fa fa-glass" aria-hidden="true"></i> Bar</h6>
-                      <h6><i class="fa fa-shopping-basket" aria-hidden="true"></i> Kiosk</h6>
-                      <h6><i class="fa fa-tree" aria-hidden="true"></i> Backyard</h6>
-                      <h6><i class="fa fa-cutlery" aria-hidden="true"></i> Food</h6>
+                      <h6 ng-if="b2buc.venue.amenities.bar=='yes'"><i class="fa fa-glass" aria-hidden="true"></i> Bar</h6>
+                      <h6 ng-if="b2buc.venue.amenities.shop=='yes'"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Kiosk</h6>
+                      <h6 ng-if="b2buc.venue.amenities.backyard=='yes'"><i class="fa fa-tree" aria-hidden="true"></i> Backyard</h6>
+                      <h6 ng-if="b2buc.venue.amenities.food=='yes'"><i class="fa fa-cutlery" aria-hidden="true"></i> Food</h6>
                     </th>
                   </tr>
                   <tr>

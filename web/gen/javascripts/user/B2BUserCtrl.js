@@ -3,13 +3,14 @@
   var B2BUserCtrl;
 
   B2BUserCtrl = (function() {
-    function B2BUserCtrl($cookieStore, $log, $location, $document, UserService) {
+    function B2BUserCtrl($cookieStore, $log, $location, $document, AWSService) {
       this.$cookieStore = $cookieStore;
       this.$log = $log;
       this.$location = $location;
       this.$document = $document;
-      this.UserService = UserService;
+      this.AWSService = AWSService;
       this.$log.debug("B2B UserCtrl created");
+      this.venue = this.AWSService.venue();
       $('.carousel').carousel({
         interval: 5000
       });
@@ -57,6 +58,6 @@
 
   })();
 
-  controllersModule.controller('B2BUserCtrl', ['$cookieStore', '$log', '$location', '$document', 'UserService', B2BUserCtrl]);
+  controllersModule.controller('B2BUserCtrl', ['$cookieStore', '$log', '$location', '$document', 'AWSService', B2BUserCtrl]);
 
 }).call(this);
