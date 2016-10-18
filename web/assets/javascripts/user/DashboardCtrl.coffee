@@ -1,6 +1,12 @@
 class DashboardCtrl
-  constructor: (@$log, @$location, @$document) ->
-      @$log.debug "Dashboard controller created"
 
+  constructor: (@$log, @$location, @$document, @AWSService) ->
+    @$log.debug "Dashboard controller created"
+    @events = {}
+    this.load()
+    @$log.debug "Loaded EVENT: " + JSON.stringify(obj) for obj in @events
 
-controllersModule.controller('DashboardCtrl', ['$log', '$location', '$document', DashboardCtrl])
+  load: () ->
+    @events = JSON.parse(@AWSService.events()).data
+
+controllersModule.controller('DashboardCtrl', ['$log', '$location', '$document', 'AWSService', DashboardCtrl])

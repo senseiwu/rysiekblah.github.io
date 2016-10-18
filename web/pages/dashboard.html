@@ -1,5 +1,5 @@
 
-<div class="mp-padding" ng-controller="DashboardCtrl as cuc">
+<div class="mp-padding" ng-controller="DashboardCtrl as dc">
   <div class="row">
 
     <!-- List of upcommint events -->
@@ -10,66 +10,16 @@
 
       <div class="panel panel-default">
         <ul class="list-group">
-          <li class="list-group-item">
+          <li class="list-group-item" ng-repeat="event in dc.events">
             <div class="panel-body">
               <div class="col-md-2">
-                <h4 class="text-muted"><strong>6:00pm</strong><h4>
+                <h4 class="text-muted"><strong>{{ event.time }}</strong><h4>
               </div>
               <div class="col-md-10">
-                <a href="#/event"><h4 class="panel-title"><strong>StartupGrid</strong></h4></a>
-                <h4>Come and find your future co-founers and investors!!!<h4>
+                <a href="#/event"><h4 class="panel-title"><strong>{{ event.title }}</strong></h4></a>
+                <h4>{{ event.description }}<h4>
                 <h5 class="text-muted">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i> : <a href="#/venue">Simply Work</a> 1355 Market Street, Suite 900, San Francisco, CA 94103
-                </h5>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <div class="panel-body">
-              <div class="col-md-2">
-                <h4 class="text-muted"><strong>6:00pm</strong><h4>
-              </div>
-              <div class="col-md-10">
-                <a href="#/event"><h4 class="panel-title"><strong>StartupGrid</strong></h4></a>
-                <h4>Come and find your future co-founers and investors!!!<h4>
-                <h5 class="text-muted">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i> : <a href="#/venue">Simply Work</a> 1355 Market Street, Suite 900, San Francisco, CA 94103
-                </h5>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-
-      <h5><strong>MONDAY, OCTOBER 20</strong></h5>
-
-      <div class="panel panel-default">
-        <ul class="list-group">
-          <li class="list-group-item">
-            <div class="panel-body">
-              <div class="col-md-2">
-                <h4 class="text-muted"><strong>6:00pm</strong><h4>
-              </div>
-              <div class="col-md-10">
-                <a href="#/event"><h4 class="panel-title"><strong>StartupGrid</strong></h4></a>
-                <h4>Come and find your future co-founers and investors!!!<h4>
-                <h5 class="text-muted">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i> : <a href="#/venue">Simply Work</a> 1355 Market Street, Suite 900, San Francisco, CA 94103
-                </h5>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <div class="panel-body">
-              <div class="col-md-2">
-                <h4 class="text-muted"><strong>6:00pm</strong><h4>
-              </div>
-              <div class="col-md-10">
-                <a href="#/event"><h4 class="panel-title"><strong>StartupGrid</strong></h4></a>
-                <h4>Come and find your future co-founers and investors!!!<h4>
-                <h5 class="text-muted">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i> : <a href="#/venue">Simply Work</a> 1355 Market Street, Suite 900, San Francisco, CA 94103
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> : <a href="#/venue">{{ event.venueName }}</a> {{ event.venueAddress }}
                 </h5>
               </div>
             </div>

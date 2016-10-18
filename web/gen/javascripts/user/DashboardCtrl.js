@@ -3,17 +3,30 @@
   var DashboardCtrl;
 
   DashboardCtrl = (function() {
-    function DashboardCtrl($log, $location, $document) {
+    function DashboardCtrl($log, $location, $document, AWSService) {
+      var i, len, obj, ref;
       this.$log = $log;
       this.$location = $location;
       this.$document = $document;
+      this.AWSService = AWSService;
       this.$log.debug("Dashboard controller created");
+      this.events = {};
+      this.load();
+      ref = this.events;
+      for (i = 0, len = ref.length; i < len; i++) {
+        obj = ref[i];
+        this.$log.debug("Loaded EVENT: " + JSON.stringify(obj));
+      }
     }
+
+    DashboardCtrl.prototype.load = function() {
+      return this.events = JSON.parse(this.AWSService.events()).data;
+    };
 
     return DashboardCtrl;
 
   })();
 
-  controllersModule.controller('DashboardCtrl', ['$log', '$location', '$document', DashboardCtrl]);
+  controllersModule.controller('DashboardCtrl', ['$log', '$location', '$document', 'AWSService', DashboardCtrl]);
 
 }).call(this);
