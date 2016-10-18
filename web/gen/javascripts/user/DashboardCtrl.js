@@ -11,6 +11,7 @@
       this.AWSService = AWSService;
       this.$log.debug("Dashboard controller created");
       this.events = {};
+      this.venues = {};
       this.load();
       ref = this.events;
       for (i = 0, len = ref.length; i < len; i++) {
@@ -20,7 +21,8 @@
     }
 
     DashboardCtrl.prototype.load = function() {
-      return this.events = JSON.parse(this.AWSService.events()).data;
+      this.events = JSON.parse(this.AWSService.events()).data;
+      return this.venues = JSON.parse(this.AWSService.venues()).data;
     };
 
     return DashboardCtrl;

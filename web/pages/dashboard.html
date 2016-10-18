@@ -6,25 +6,29 @@
     <div class="col-md-8">
       <div class="well well-sm"><strong>EVENTS</strong></div>
 
-      <h5><strong>MONDAY, OCTOBER 17</strong></h5>
+      <div ng-repeat="event in dc.events">
 
-      <div class="panel panel-default">
-        <ul class="list-group">
-          <li class="list-group-item" ng-repeat="event in dc.events">
-            <div class="panel-body">
-              <div class="col-md-2">
-                <h4 class="text-muted"><strong>{{ event.time }}</strong><h4>
+        <h5><strong>{{ event.date }}</strong></h5>
+
+        <div class="panel panel-default">
+          <ul class="list-group">
+            <li class="list-group-item" ng-repeat="eventDetails in event.eventList">
+              <div class="panel-body">
+                <div class="col-md-2">
+                  <h4 class="text-muted"><strong>{{ eventDetails.time }}</strong><h4>
+                </div>
+                <div class="col-md-10">
+                  <a href="#/event"><h4 class="panel-title"><strong>{{ eventDetails.title }}</strong></h4></a>
+                  <h4>{{ eventDetails.description }}<h4>
+                  <h5 class="text-muted">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i> : <a href="#/venue">{{ eventDetails.venueName }}</a> {{ eventDetails.venueAddress }}
+                  </h5>
+                </div>
               </div>
-              <div class="col-md-10">
-                <a href="#/event"><h4 class="panel-title"><strong>{{ event.title }}</strong></h4></a>
-                <h4>{{ event.description }}<h4>
-                <h5 class="text-muted">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i> : <a href="#/venue">{{ event.venueName }}</a> {{ event.venueAddress }}
-                </h5>
-              </div>
-            </div>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
+
       </div>
 
     </div>
@@ -34,56 +38,18 @@
 
       <div class="well well-sm"><strong>VENUES</strong></div>
 
-      <div class="panel panel-default">
+      <div class="panel panel-default" ng-repeat="venue in dc.venues">
         <div class="panel-body">
           <div class="col-md-2">
             <img class="featurette-image img-responsive left-block" src="images/logos/logo1.png">
           </div>
           <div class="col-md-10">
-            <a href="#/venue"><h4 class="panel-title"><strong>Simple Work</strong></h4></a>
-            <h5>
-              Located near the Jing'an Temple, the WeWork Yanping Lu coworking space has a rich culture and history.
-            </h5>
+            <a href="#/venue"><h4 class="panel-title"><strong>{{ venue.name }}</strong></h4></a>
+            <h5>{{ venue.info }}</h5>
             <h5><strong>
-                <i class="fa fa-location-arrow" aria-hidden="true"></i> : 1355 Market Street, Suite 900, San Francisco, CA 94103
+                <i class="fa fa-location-arrow" aria-hidden="true"></i> : {{ venue.address }}
             </strong></h5>
-            <span class="label label-success">Co-working space</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="col-md-2">
-            <img class="featurette-image img-responsive left-block" src="images/logos/logo5.png">
-          </div>
-          <div class="col-md-10">
-            <a href="#/venue"><h4 class="panel-title"><strong>Simple Work</strong></h4></a>
-            <h5>
-              Located near the Jing'an Temple, the WeWork Yanping Lu coworking space has a rich culture and history.
-            </h5>
-            <h5><strong>
-                <i class="fa fa-map-marker" aria-hidden="true"></i> : 1355 Market Street, Suite 900, San Francisco, CA 94103
-            </strong></h5>
-            <span class="label label-success">Co-working space</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="col-md-2">
-            <img class="featurette-image img-responsive left-block" src="images/logos/logo4.png">
-          </div>
-          <div class="col-md-10">
-            <a href="#/venue"><h4 class="panel-title"><strong>Simple Work</strong></h4></a>
-            <h5>
-              Located near the Jing'an Temple, the WeWork Yanping Lu coworking space has a rich culture and history.
-            </h5>
-            <h5><strong>
-                <i class="fa fa-location-arrow" aria-hidden="true"></i> : 1355 Market Street, Suite 900, San Francisco, CA 94103
-            </strong></h5>
-            <span class="label label-success">Co-working space</span>
+            <span class="label label-success">{{ venue.type }}</span>
           </div>
         </div>
       </div>
