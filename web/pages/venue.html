@@ -127,18 +127,12 @@
                     </th>
                     <th colspan="2">
                       <div class="phw">
-                        <h6>
-                        <strong>
-                          Located near the Jing'an Temple, the WeWork Yanping Lu coworking space has a rich culture and history.
-                          It also offers easy access to two main Metro stops, Line 2 and Line 7, and is surrounded by restaurants offering
-                          traditional Shanghai cuisine. Members can enjoy a giant fish tank wall, large meeting rooms, and office space
-                          flooded with sunlight thanks to the floor-to-ceiling windows.
-                        </strong>
-                      </h6>
+                        <h6><strong>{{ b2buc.venue.directions.info }}</strong></h6>
                       </div>
                       <br>
-                      <h6><i class="fa fa-subway" aria-hidden="true"></i> Metro : Line 2, station Liu Chan, Exit A1</h6>
-                      <h6><i class="fa fa-bus" aria-hidden="true"></i> Bus: Line 230, Liu Chan Road</h6>
+                      <h6 ng-if="b2buc.venue.directions.metro"><i class="fa fa-subway" aria-hidden="true"></i> {{ b2buc.venue.directions.metro }}</h6>
+                      <h6 ng-if="b2buc.venue.directions.bus"><i class="fa fa-bus" aria-hidden="true"></i> {{ b2buc.venue.directions.bus }}</h6>
+                      <h6 ng-if="b2buc.venue.directions.ferry"><i class="fa fa-ship" aria-hidden="true"></i> {{ b2buc.venue.directions.ferry }}</h6>
                     </th>
                   </tr>
                 </table>

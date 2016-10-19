@@ -17,9 +17,12 @@ class B2BUserCtrl
     @$log.debug "Load Map data"
     L.mapbox.accessToken = 'pk.eyJ1Ijoia296bG93c3QiLCJhIjoiY2lzeGVlNTFnMDAyeTJ0cGR2N3czaXN3ciJ9.fmbuFc5B24xKGiiLJ7mrpA';
     mapLeaflet = L.mapbox.map('map', 'mapbox.streets', {
-      scrollWheelZoom: false
-    }).setView([38.913184, -77.031952], 16);
-    L.marker([38.913184, -77.031952]).addTo(mapLeaflet);
+      scrollWheelZoom: true
+    }).setView([@venue.directions.coordinates.longitude, @venue.directions.coordinates.latitude], 16);
+    L.marker([@venue.directions.coordinates.longitude, @venue.directions.coordinates.latitude]).addTo(mapLeaflet);
+        #
+        # }).setView([38.913184, -77.031952], 16);
+        # L.marker([38.913184, -77.031952]).addTo(mapLeaflet);
 
   initGallery: () ->
     @$log.debug "inita gallery"

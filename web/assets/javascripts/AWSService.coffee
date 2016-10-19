@@ -31,7 +31,58 @@ class AWSService
         "printer":"yes",
         "onsiteSupport":"yes",
         "showers":"no"
-      }
+      },
+      "directions":{
+        "info":"Located near the Jingan Temple, the WeWork Yanping Lu coworking space has a rich culture and history. It also offers easy access to two main Metro stops, Line 2 and Line 7",
+        "bus":"Line 230, Liu Chan Road",
+        "metro":"Line 2, station Liu Chan, Exit A1",
+        "coordinates":{
+          "longitude":"38.913184",
+          "latitude":"-71.031952"
+        }
+      },
+      "offer":[
+          {
+            "type":"Conference Room",
+            "capacity":"16",
+            "amenities":{
+              "projector":"yes",
+              "whiteboard":"no",
+              "smartboard":"yes",
+              "camera":"yes"
+            },
+            "pricing":[
+              {
+                "price":"200CNY",
+                "unit":"per hour",
+                "comment":"minimum booking 1 hour"
+              },
+              {
+                "price":"500CNY",
+                "unit":"per day"
+              }
+            ]
+          },
+          {
+            "type":"Desk",
+            "capacity":"1",
+            "amenities":{
+              "whiteboard":"yes",
+              "deskLamp":"yes"
+            },
+            "pricing":[
+              {
+                "price":"200CNY",
+                "unit":"per day",
+                "comment":"minimum booking 1 day"
+              },
+              {
+                "price":"1100CNY",
+                "unit":"per month"
+              }
+            ]
+          }
+        ]
     }'
 
   events: () ->

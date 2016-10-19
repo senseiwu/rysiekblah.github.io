@@ -27,9 +27,9 @@
       this.$log.debug("Load Map data");
       L.mapbox.accessToken = 'pk.eyJ1Ijoia296bG93c3QiLCJhIjoiY2lzeGVlNTFnMDAyeTJ0cGR2N3czaXN3ciJ9.fmbuFc5B24xKGiiLJ7mrpA';
       mapLeaflet = L.mapbox.map('map', 'mapbox.streets', {
-        scrollWheelZoom: false
-      }).setView([38.913184, -77.031952], 16);
-      return L.marker([38.913184, -77.031952]).addTo(mapLeaflet);
+        scrollWheelZoom: true
+      }).setView([this.venue.directions.coordinates.longitude, this.venue.directions.coordinates.latitude], 16);
+      return L.marker([this.venue.directions.coordinates.longitude, this.venue.directions.coordinates.latitude]).addTo(mapLeaflet);
     };
 
     B2BUserCtrl.prototype.initGallery = function() {
