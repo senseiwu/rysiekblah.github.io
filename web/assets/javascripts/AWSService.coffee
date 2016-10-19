@@ -38,7 +38,7 @@ class AWSService
         "metro":"Line 2, station Liu Chan, Exit A1",
         "coordinates":{
           "longitude":"38.913184",
-          "latitude":"-71.031952"
+          "latitude":"-77.036982"
         }
       },
       "offer":[
